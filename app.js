@@ -9,7 +9,7 @@ var api = require('./api/index');
 var list = require('./api/list');
 var connections = require('./api/connections')
 var app = express();
-
+var auth = require('./auth/index')
 
 
 // uncomment after placing your favicon in /public
@@ -18,6 +18,10 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+
+app.use('/auth', auth);
+
 
 app.use('/api', api);
 app.use('/api/list', list)
