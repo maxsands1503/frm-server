@@ -43,5 +43,12 @@ module.exports={
         message : "you cant come here buddy"
       });
     }
-  }
+  },
+findUserByEmail : function(email){
+  return knex('users').where({"email": email}).first();
+},
+addUser : function(body){
+  return knex('users').insert(body);
+}
+
 };
