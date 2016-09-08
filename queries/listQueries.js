@@ -9,8 +9,8 @@ module.exports = {
                           user_id: input.id,
                           list_type: input.list_type});
   },
-  all: function(){
-    return Lists().select();
+  all: function(id){
+    return Lists().where('user_id',id);
   },
   find: function(id){
     return Lists().where('id',id);
