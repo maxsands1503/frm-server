@@ -8,18 +8,20 @@ module.exports = router;
 
 router.get('/', function(req, res, next){
   var user_id = //**GET JSON WEB TOKEN DATA**
-  lists.all(user_id).then(function(data){
-    res.json(data);
+  lists.all(user_id).then(function(lists){
+    res.json(lists);
   })
 });
 router.post('/', function(req, res, next){
   lists.create(req.body).then(function(data){
     res.json(data);
   })
-});
+});       
 router.get('/:id', function(req, res, next){
-  lists.find(req.params.id).then(function(data){
-    res.json(data);
+  lists.find(req.params.id).then(function(list){
+    listItems.all(list.id).then(function(listItems){
+      res.json({list:list,listItems:listItems});
+    })
   })
 });
 router.post('/:id', function(req, res, next){
