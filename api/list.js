@@ -18,7 +18,7 @@ router.post('/', function(req, res, next){
   })
 });
 router.get('/:id', function(req, res, next){
-  lists.find(req.params.id).then(function(list){
+  lists.find(req.params.id).first().then(function(list){
     listItems.all(list.id).then(function(listItems){
       res.json({list:list,listItems:listItems});
     })
