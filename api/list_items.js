@@ -3,7 +3,7 @@ var router = express.Router();
 var knex = require('../db/knex');
 var queries = require('../queries/apiQueries');
 var lists = require('../queries/listQueries');
-var listItems = require('../queries/listItemQueries')
+var listItems = require('../queries/listItemQueries');
 module.exports = router;
 
 router.post('/', function(req, res, next){
@@ -24,7 +24,7 @@ router.post('/:id', function(req, res, next){
   })
 });
 router.get('/:id/delete', function(req, res, next){
-  listItems.deleteOne(req.params.id).then(function){
+  listItems.deleteOne(req.params.id).then(function(){
     res.json('list item deleted');
   })
 });
