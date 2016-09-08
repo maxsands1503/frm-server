@@ -6,7 +6,5 @@ module.exports = router;
 
 router.get('/', function(req, res, next){
   console.log("*******HELLO****");
-  queries.test().then(function(data){
     res.json({test:'hello'});
-      });
 });
