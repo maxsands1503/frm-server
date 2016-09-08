@@ -12,7 +12,7 @@ module.exports = router;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.json({message: "hello"})
 });
 
 module.exports = router;
