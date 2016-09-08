@@ -46,7 +46,5 @@ editConnection: function(input, urlin){
     connection_id: input.connection_id
   })
 },
-deleteConnection: function(input){
-  return knex()
-}
+
 };

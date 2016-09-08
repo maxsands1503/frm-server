@@ -27,4 +27,15 @@ module.exports = {
   delete: function(id){
     return Lists().where('id',id).del();
   },
+  addUser: function(id, input){
+    return knex('connections').where('connection_id', id).first().then(function(connect){
+      return knex('list_users').insert({
+        list_id: input.list,
+        user_id: connect.connection_id,
+        conn_id: connect.id,
+        user_permission: input.permission
+      })
+    })
+  }
+
 }
