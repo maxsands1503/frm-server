@@ -7,9 +7,10 @@ var bodyParser = require('body-parser');
 
 var api = require('./api/index');
 var list = require('./api/list');
-var connections = require('./api/connections')
+var listItems = require('./api/list_items');
+var connections = require('./api/connections');
 var app = express();
-var auth = require('./auth/index')
+var auth = require('./auth/index');
 
 
 // uncomment after placing your favicon in /public
@@ -24,8 +25,9 @@ app.use('/auth', auth);
 
 
 app.use('/api', api);
-app.use('/api/list', list)
-app.use('/api/connections', connections)
+app.use('/api/list', list);
+app.use('/api/listItems', listItems);
+app.use('/api/connections', connections);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

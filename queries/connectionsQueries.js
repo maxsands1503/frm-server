@@ -37,7 +37,6 @@ getOneConnection: function(input){
   })
 },
 editConnection: function(input, urlin){
-
   return knex('connections').where('id', input.id).first().update({
     first_name: input.first_name,
     last_name: input.last_name,
@@ -46,5 +45,8 @@ editConnection: function(input, urlin){
     is_user: input.is_user,
     connection_id: input.connection_id
   })
+},
+deleteConnection: function(input){
+  return knex()
 }
 };
