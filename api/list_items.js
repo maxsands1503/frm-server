@@ -12,8 +12,8 @@ router.post('/', function(req, res, next){
   })
 });
 router.get('/:id', function(req, res, next){
-  listItems.find(req.params.id).then(function(data){
-    res.json(data);
+  listItems.find(req.params.id).first().then(function(listItem){
+    res.json(listItem);
   })
 });
 router.post('/:id', function(req, res, next){
