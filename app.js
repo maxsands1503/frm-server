@@ -21,13 +21,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 
-app.use('/auth', auth);
 
 
 app.use('/api', api);
 app.use('/api/list', list);
 app.use('/api/listItems', listItems);
 app.use('/api/connections', connections);
+app.use('/auth', auth);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

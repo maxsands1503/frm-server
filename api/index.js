@@ -12,6 +12,7 @@ module.exports = router;
 
 /* GET home page. */
 router.post('/', function(req, res, next) {
+  console.log("HELLLO");
   res.json({message: "hello"})
 });
 

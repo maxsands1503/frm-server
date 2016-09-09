@@ -1,5 +1,8 @@
 var knex = require('../db/knex');
 module.exports ={
+  getAllConnections: function(input){
+    return knex('connections').where('user_id', input);
+  },
   createConnection: function(input, urlin){
     if(input.is_user === true){
       return knex('users').where('email', input.email).first().then(function(data){
