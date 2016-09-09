@@ -9,7 +9,9 @@ module.exports ={
           relation: data.relation,
           user_id: urlin.id,
           is_user: true,
-          connection_id: data.id
+          connection_id: data.id,
+          phone: input.phone,
+          email: data.email
         })
       })
     }else{
@@ -19,7 +21,9 @@ module.exports ={
         relation: input.relation,
         user_id: urlin.id,
         is_user: false,
-        connection_id: null
+        connection_id: null,
+        phone: input.phone,
+        email: input.email
       })
     }
   },
@@ -43,7 +47,9 @@ module.exports ={
       relation: input.relation,
       user_id: urlin.id,
       is_user: input.is_user,
-      connection_id: input.connection_id
+      connection_id: input.connection_id,
+      phone: input.phone,
+      email: input.email
     })
   },
   deleteConnection: function(input){

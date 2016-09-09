@@ -8,7 +8,7 @@ var listItems = require('../queries/listItemQueries');
 module.exports = router;
 
 router.get('/', function(req, res, next){
-  var user_id = //**GET JSON WEB TOKEN DATA**
+  var user_id = 1//**GET JSON WEB TOKEN DATA**
 
   lists.all(user_id).then(function(lists){
     res.json(lists);
