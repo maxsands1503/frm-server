@@ -6,15 +6,17 @@ function Lists(){
 module.exports = {
   create: function(input){
     return Lists().insert({name: input.name,
-                          user_id: input.id,
+                          user_id: input.user_id,
                           list_type: input.list_type});
   },
-
   all: function(id){
     return Lists().where('user_id',id);
   },
   find: function(id){
     return Lists().where('id',id);
+  },
+  findLatest: function(user_id){
+    return Lists().where('user_id',user_id).orderBy('id','desc').first();
   },
   update: function(input){
     return Lists().where('id',input.id)
