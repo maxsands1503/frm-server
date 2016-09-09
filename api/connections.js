@@ -9,7 +9,7 @@ module.exports = router;
 router.post('/', function(req, res, next){
   var input = req.body;
   var urlin = {};
-  urlin.user_id = //***GET JSON WEB TOKEN***
+  urlin.user_id = 1//***GET JSON WEB TOKEN***
   Connections.createConnection(input, urlin).then(function(data){
     res.json(data);
   })
@@ -24,7 +24,7 @@ router.get('/:id', function(req, res, next){
 router.post('/:id', function(req, res, next){
   var input = req.body;
   var urlin = {};
-  urlin.user_id = //**GET JSON WEB TOKEN***
+  urlin.user_id = 1//**GET JSON WEB TOKEN***
   Connections.editConnection(input, urlin);
 });
 
