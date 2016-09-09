@@ -10,8 +10,9 @@ function Connections(){
 
 router.post('/', function(req, res, next){
   var input = req.body;
-  input.user_id = //***GET JSON WEB TOKEN***
-  Connections().createConnection(input).then(function(data){
+  var urlin = {};
+  urlin.user_id = //***GET JSON WEB TOKEN***
+  Connections().createConnection(input, urlin).then(function(data){
     res.json(data);
   })
 });
@@ -24,10 +25,13 @@ router.get('/:id', function(req, res, next){
 
 router.post('/:id', function(req, res, next){
   var input = req.body;
-  input.user_id = //***GET JSON WEB TOKEN***
-  Connections().editConnection(input);
+  var urlin = {};
+  urlin.user_id = //**GET JSON WEB TOKEN***
+  Connections().editConnection(input, urlin);
 });
 
 router.get('/:id/delete', function(req, res, next){
-  Connections().deleteConnection(req.params.id);
+  var input = {};
+  input.id = req.params.id
+  Connections().deleteConnection(input);
 });
