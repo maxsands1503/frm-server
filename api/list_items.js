@@ -7,8 +7,10 @@ var listItems = require('../queries/listItemQueries');
 module.exports = router;
 
 router.post('/', function(req, res, next){
-  listItems.create(req.body).then(function(data){
-    res.json(data);
+  var input = req.body;
+  input.list_id = Number(req.body.list_id);
+  listItems.create(input).then(function(){
+    res.json('list item created');
   })
 });
 router.get('/:id', function(req, res, next){

@@ -30,10 +30,10 @@ module.exports ={
       })
     }
   },
-  getOneConnection: function(input){
-    return knex('connections').where('id', input.id).first().then(function(con){
-      return knex('list_users').where('conn_id', con.id).then(function(listU){
-        return knex('lists').whereIn('id', listU.list_id).then(function(listS){
+  getOneConnection: function(id){
+    return knex('connections').where('id', id).first().then(function(con){
+      return knex('list_users').where('conn_id', con.id).first().then(function(listU){
+        return knex('lists').whereIn('id', listU.list_id).first().then(function(listS){
           return {
             con: con,
             listU: listU,
@@ -43,6 +43,12 @@ module.exports ={
       })
     })
   },
+  getJustOneConnection: function(id){
+    return knex('connections').where('id', id).first().then(function(con){
+      return con;
+    })
+  },
+
   editConnection: function(input, urlin){
     return knex('connections').where('id', input.id).first().update({
       first_name: input.first_name,
